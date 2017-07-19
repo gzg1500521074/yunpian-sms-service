@@ -1,8 +1,10 @@
 短信验证码 Node.js平台接口封装实现
 -------
 
-对[云片服务提供商](https://www.yunpian.com/api2.0/document-demo.html)中给出的node.js接口进行了封装并Promise化。
+本模块主要实现了对[云片服务提供商](https://www.yunpian.com/api2.0/document-demo.html)中给出的node.js平台接口进行了封装并Promise化。
+大家可以注册[云片](https://www.yunpian.com)进行短信验证测试，充值50元，大概可以发送1000条左右。需要注意:注册成功后，需要进行实名及模板等相关认证，不过半个钟头就审核通过了，大家可以自行测试。
 
+-------
 云片基于node提供了三种`短信验证码内容`模式：
 
 |名称 | 说明 |
