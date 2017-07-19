@@ -20,8 +20,7 @@ $ npm install yunpian-sms-service --save
 ```
 -------
 
-## 示例
-以发送模板短信验证码为例：
+## 示例1-发送模板短信验证码：
 ```js
 
 // 导入短信服务模块
@@ -50,6 +49,64 @@ sms_service.send_tpl_msg(apikey, mobile, tpl_id, tpl_value)
 .catch((err) => {
   // 发送失败
   console.log(err);
+});
+
+```
+
+
+## 示例2-发送自定义短信验证码：
+
+```js
+
+// 导入短信服务模块
+const sms_service = require('yunpian-sms-service');
+
+// 修改为您的apikey.可在官网（https://www.yunpian.com)登录后获取
+var apikey = '您的apikey';
+
+// 修改为您要发送的手机号码，多个号码用逗号隔开
+var mobile = '接收短信的手机号';
+
+// 修改为您要发送的短信内容,注意签名一定要与你云片后台的签名一致,比如我的签名为【node社区】，其它内容可以随便写.
+var text = '【node社区】您的验证码是1234';
+
+// 发送短信
+sms_service.send_single_msg(apikey, mobile, text)
+.then(function(msg){
+    console.log(msg);
+    res.redirect('/');
+})
+.catch(function(err){
+    console.log(err);
+});
+
+```
+
+
+## 示例3-发送语音短信验证码：
+
+```js
+
+// 导入短信服务模块
+const sms_service = require('yunpian-sms-service');
+
+// 修改为您的apikey.可在官网（https://www.yunpian.com)登录后获取
+var apikey = '您的apikey';
+
+// 修改为您要发送的手机号码，多个号码用逗号隔开
+var mobile = '接收短信的手机号';
+
+// 语音短信的内容,这个随便写，最好是数字，4-6位都可以
+var code = '5210';
+
+// 发送语音短信,然后就准备接听电话吧......
+sms_service.send_voice_msg(apikey, mobile, code)
+.then(function(msg){
+    console.log(msg);
+    res.redirect('/');
+})
+.catch(function(err){
+    console.log(err);
 });
 
 ```
